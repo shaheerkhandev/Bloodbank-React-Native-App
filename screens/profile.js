@@ -11,7 +11,7 @@ class Profile extends React.Component {
 
     edit=()=>{
     const { username, bloodtype, age, phonenumber } = this.props.route.params;
-    this.props.navigation.navigate('Editprofile', {username: username, bloodtype: bloodtype, phonenumber: phonenumber, age: age});
+    this.props.navigation.navigate('Editprofile', {username: username, bloodtype: bloodtype, phonenumber: phonenumber, age: age, password: password});
     }
 
     handleBackButtonClick = () => {
@@ -27,7 +27,7 @@ class Profile extends React.Component {
   }
 
     render(){
-        const { username, bloodtype, age, phonenumber } = this.props.route.params;
+        const { username, bloodtype, age, phonenumber, password } = this.props.route.params;
         return(<>
             <Text style={{position: 'relative', top: 70, left: 15,fontSize: 26}}>My Profile:</Text>
             <View style={{position: 'relative', top: 100, left: 15}}>
@@ -41,7 +41,7 @@ class Profile extends React.Component {
             <Text style={{textDecorationLine: 'underline', color: 'blue', fontSize: 20}} onPress={()=>{NativeModules.DevSettings.reload();}} >Logout</Text>
             </View>
             <View style={{position: 'absolute', bottom: 1, left: 1, right: 1,}}>
-            <Button title="Go to Home" onPress={()=>{this.props.navigation.navigate('Home', {username: username, bloodtype: bloodtype, phonenumber: phonenumber,})}} />
+            <Button title="Go to Home" onPress={()=>{this.props.navigation.navigate('Home', {username: username, bloodtype: bloodtype, phonenumber: phonenumber, password: password})}} />
             </View>
         </>)
     }
