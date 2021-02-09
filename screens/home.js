@@ -58,7 +58,7 @@ componentWillUnmount() {
      }
 
     render(){
-        const { username, bloodtype, phonenumber, age } = this.props.route.params;
+        const { username, bloodtype, phonenumber, age, password } = this.props.route.params;
         return(<>
         <TextInput placeholder=" Search User... (Press enter to search)" onSubmitEditing={this.search} onChangeText={(text)=>{this.setState({searchs: text})}}/>
         <Text style={{alignSelf: 'center', fontWeight: 'bold', marginBottom: 20, marginTop: 30}}>Users matching your bloodtype...</Text>
@@ -70,7 +70,7 @@ componentWillUnmount() {
             </View>
           )})}
             <View style={{position: 'absolute', bottom: 1, left: 1, right: 1,}}>
-            <Button title="Go to My Profile" onPress={()=>{this.props.navigation.navigate('Profile', {username: username, bloodtype: bloodtype, phonenumber: phonenumber, age: age})}} />
+            <Button title="Go to My Profile" onPress={()=>{this.props.navigation.navigate('Profile', {username: username, bloodtype: bloodtype, phonenumber: phonenumber, age: age, password: password})}} />
             </View>
             </>)
     }
