@@ -28,10 +28,13 @@ class Register extends React.Component {
   }
 
     edit=()=>{
-        const { username, bloodtype } = this.props.route.params;
+        const { username, bloodtype, password, } = this.props.route.params;
         if(this.state.bloodtype === 'default' || this.state.age === '' || this.state.countrycode === 'default' || this.state.phonenumber === ''){Alert.alert("Please fill in the required fields and try again.");}else{
         firebase.database().ref('USR-' + username).set({
             age: this.state.age,
+            username: username,
+            password: password,
+            bloodtype: bloodtype,
             phonenumber: this.state.countrycode + this.state.phonenumber
           });
         this.props.navigation.navigate('Profile', {username: username, age: this.state.age, bloodtype: bloodtype, phonenumber: this.state.phonenumber});
