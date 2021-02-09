@@ -34,7 +34,7 @@ class Login extends React.Component {
           var age = (snapshot.val() && snapshot.val().age)
           const {navigation} = this.props;
           if(this.state.username === username && this.state.password === password){
-          navigation.navigate('Home', {username: username, bloodtype: bloodtype, phonenumber: phonenumber, age: age});
+          navigation.navigate('Home', {username: username, bloodtype: bloodtype, phonenumber: phonenumber, age: age, password: password});
           }else{Alert.alert("Username or password doesn't match.");}
         });   
     }
